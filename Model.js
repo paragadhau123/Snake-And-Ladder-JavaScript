@@ -7,6 +7,7 @@ class Model
        var option = 0;
        var diceNumber = 0;
        var newPosition = START_POSITION;
+       var numberOfTimesDiceRoll = 0;
 
         console.log("Starting Position : "+ START_POSITION);
         console.log("Ending Position : "+ END_POSITION);
@@ -14,37 +15,38 @@ class Model
         while(newPosition<END_POSITION){
 
         var diceNumber =this.throwDice();
-        var option = this.optionCheck();
+        numberOfTimesDiceRoll = numberOfTimesDiceRoll + 1;
 
-        console.log("Die Number is :"+diceNumber);
+        var option = this.optionCheck();
+        console.log("-------------------------------------------------------------------------------");
+        console.log("Die Number is : "+diceNumber);
 
         if (option == 2)
         {
            newPosition = newPosition+diceNumber;
-           console.log("Ladder");
+           console.log("----Option is for Ladder----");
            if (newPosition>100)
              {
                newPosition = newPosition - diceNumber;
              }
-           console.log("NewPosition is :"+newPosition);
         }
         else if (option == 3)
         {
            newPosition = newPosition-diceNumber;
-           console.log("Snake");
+           console.log("----Option is for Snake----");
            if(newPosition<0)
              {
                  newPosition = 0;
              }
-           console.log("NewPosition is :"+newPosition);
         }
         else if (option == 1)
         {
            newPosition=newPosition;
-           console.log("No-Play");
-           console.log("NewPosition is :"+newPosition);
-         }
+           console.log("-----Option is for No-Play-----");
+         }        
+       console.log("New Position is : "+newPosition);
        }
+       console.log("Number of times dice roll : "+numberOfTimesDiceRoll);
      }
        optionCheck()
         {
@@ -57,6 +59,6 @@ class Model
           var Random = Math.floor((Math.random()*6)+1);
           return Random;
          }
-
+      
     }
     module.exports = new Model();

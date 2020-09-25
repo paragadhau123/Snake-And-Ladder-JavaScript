@@ -4,7 +4,7 @@ class Controller
 {
   console.log("Welcome To Snake And Ladder Simulation");
   const print = require('./Model');
-  print.Simulation();               
+  print.Simulation();     
    }
  }
   const object = new Controller();
