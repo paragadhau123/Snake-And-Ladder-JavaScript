@@ -10,7 +10,9 @@ class Model
 
         console.log("Starting Position : "+ START_POSITION);
         console.log("Ending Position : "+ END_POSITION);
-        
+
+        while(newPosition<END_POSITION){
+
         var diceNumber =this.throwDice();
         var option = this.optionCheck();
         console.log("Die Number is :"+diceNumber);
@@ -19,12 +21,20 @@ class Model
         {
           newPosition = newPosition+diceNumber;
           console.log("Ladder");
+          if (newPosition>100)
+          {
+             newPosition = newPosition - diceNumber;
+          }
           console.log("NewPosition is :"+newPosition);
         }
         else if (option == 3)
         {
           newPosition = newPosition-diceNumber;
           console.log("Snake");
+          if(newPosition<0)
+          {
+            newPosition = 0;
+          }
           console.log("NewPosition is :"+newPosition);
         }
         else if (option == 1)
@@ -34,7 +44,7 @@ class Model
           console.log("NewPosition is :"+newPosition);
         }
       }
-
+    }
        optionCheck()
         {
         var Random = Math.floor((Math.random()*3)+1);
