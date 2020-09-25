@@ -1,0 +1,19 @@
+{
+  "name": "snakeandladder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Controller.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paragadhau123/Snake-And-Ladder-JavaScript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paragadhau123/Snake-And-Ladder-JavaScript/issues"
+  },
+  "homepage": "https://github.com/paragadhau123/Snake-And-Ladder-JavaScript#readme"
+}
