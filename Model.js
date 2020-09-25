@@ -15,46 +15,47 @@ class Model
 
         var diceNumber =this.throwDice();
         var option = this.optionCheck();
+
         console.log("Die Number is :"+diceNumber);
 
         if (option == 2)
         {
-          newPosition = newPosition+diceNumber;
-          console.log("Ladder");
-          if (newPosition>100)
-          {
-             newPosition = newPosition - diceNumber;
-          }
-          console.log("NewPosition is :"+newPosition);
+           newPosition = newPosition+diceNumber;
+           console.log("Ladder");
+           if (newPosition>100)
+             {
+               newPosition = newPosition - diceNumber;
+             }
+           console.log("NewPosition is :"+newPosition);
         }
         else if (option == 3)
         {
-          newPosition = newPosition-diceNumber;
-          console.log("Snake");
-          if(newPosition<0)
-          {
-            newPosition = 0;
-          }
-          console.log("NewPosition is :"+newPosition);
+           newPosition = newPosition-diceNumber;
+           console.log("Snake");
+           if(newPosition<0)
+             {
+                 newPosition = 0;
+             }
+           console.log("NewPosition is :"+newPosition);
         }
         else if (option == 1)
         {
-          newPosition=newPosition;
-          console.log("No-Play");
-          console.log("NewPosition is :"+newPosition);
-        }
-      }
-    }
+           newPosition=newPosition;
+           console.log("No-Play");
+           console.log("NewPosition is :"+newPosition);
+         }
+       }
+     }
        optionCheck()
         {
-        var Random = Math.floor((Math.random()*3)+1);
-        return Random;
+         var Random = Math.floor((Math.random()*3)+1);
+         return Random;
         }
 
          throwDice()
          {
-        var Random = Math.floor((Math.random()*6)+1);
-        return Random;
+          var Random = Math.floor((Math.random()*6)+1);
+          return Random;
          }
 
     }
