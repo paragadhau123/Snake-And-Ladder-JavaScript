@@ -1,13 +1,20 @@
-var START_POSITION = 0;
-var END_POSITION = 100;
+const START_POSITION = 0;
+const END_POSITION = 100;
+let playerOne = 0;
+let playerTwo = 0;
+let newPosition = 0;
+let switchplayer = 0;
+let option = 0;
+let diceNumber = 0;
+
 class Model {
 
-  GenerateRandomNumber(number) {
+  GenerateRandomNumber = (number) => {
     var Random = Math.floor((Math.random() * number) + 1);
     return Random;
   }
 
-  Play(option,newPosition,diceNumber) {
+  Play = (option, newPosition, diceNumber) => {
 
     switch (option) {
 
@@ -39,29 +46,49 @@ class Model {
     return newPosition;
   }
 
-  Simulation() {
+  Simulation = (newPosition) => {
 
-    var option = 0;
-    var diceNumber = 0;
-    var numberOfTimesDiceRoll = 0;
-    var newPosition = START_POSITION;
+    diceNumber = this.GenerateRandomNumber(6);
+    option = this.GenerateRandomNumber(3);
+    console.log("-------------------------------------------------------------------------------");
+    console.log("Die Number is => " + diceNumber);
 
-     while (newPosition < END_POSITION) {
+    var newPosition = this.Play(option, newPosition, diceNumber);
+    return newPosition;
 
-      var diceNumber = this.GenerateRandomNumber(6);
-      numberOfTimesDiceRoll = numberOfTimesDiceRoll + 1;
-
-      var option = this.GenerateRandomNumber(3);
-      console.log("-------------------------------------------------------------------------------");
-      console.log("Previous position is => " + newPosition);
-      console.log("Die Number is => " + diceNumber);
-
-      var newPosition = this.Play(option,newPosition,diceNumber);
-
-      console.log("New Position is => " + newPosition);
-    }
-    console.log("Number of times dice roll => " + numberOfTimesDiceRoll);
   }
 
+  WhoWins = () => {
+
+    while (newPosition != END_POSITION) {
+      switchplayer =switchplayer+1;
+      var num = switchplayer % 2;
+      switch (num) {
+        case 0:
+          while (playerOne != END_POSITION) {
+            newPosition = playerOne;
+            newPosition = this.Simulation(newPosition);
+            playerOne = newPosition;
+            console.log("New Position of player one => " + playerOne);
+          }
+          if (playerOne == END_POSITION) {
+
+            console.log("Player one win the game as 100th position is reached");
+          }
+          break;
+        case 1:
+          while (playerTwo != END_POSITION) {
+            newPosition = playerTwo;
+            newPosition = this.Simulation(newPosition);
+            playerTwo = newPosition;
+            console.log("New Position of player two => " + playerTwo);
+          }
+          if (playerTwo == END_POSITION) {
+            console.log("Player two win the game as 100th position is reached");
+          }
+          break;
+      }
+    }
+  }
 }
 module.exports = new Model();

@@ -1,0 +1,36 @@
+WhoWins() {
+    var playerOne = 0;
+    var playerTwo = 0;
+    var newPosition = 0;
+    var switchplayer = 0;
+    while (newPosition != END_POSITION) {
+      var a = switchplayer % 2 ;
+      
+        while (playerOne != END_POSITION) {
+          newPosition = playerOne;
+          newPosition = this.Simulation(newPosition);
+          playerOne = newPosition;
+          console.log("s ="+switchplayer);
+          console.log("New Position of player one => " + playerOne);
+
+          if (playerOne == END_POSITION) {
+
+            console.log("Player one win the game as 100th position is reached");
+
+          }
+        }
+      }
+      else {
+        while (playerTwo != END_POSITION) {
+          newPosition = playerTwo;
+          newPosition = this.Simulation(newPosition);
+          playerTwo = newPosition;
+          console.log("New Position of player two => " + playerTwo);
+          if (playerTwo == END_POSITION) {
+            console.log("Player two win the game as 100th position is reached");
+          }
+        }        
+      }
+    }
+  }
+}
