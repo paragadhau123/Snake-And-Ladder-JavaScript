@@ -1,35 +1,37 @@
-WhoWins() {
-    var playerOne = 0;
-    var playerTwo = 0;
-    var newPosition = 0;
-    var switchplayer = 0;
-    while (newPosition != END_POSITION) {
-      var a = switchplayer % 2 ;
-      
-        while (playerOne != END_POSITION) {
-          newPosition = playerOne;
-          newPosition = this.Simulation(newPosition);
-          playerOne = newPosition;
-          console.log("s ="+switchplayer);
-          console.log("New Position of player one => " + playerOne);
+WhoWins = () => {
 
+    while (newPosition != END_POSITION) {
+     // switchplayer =switchplayer+1;
+     // var num = switchplayer % 2;
+      var num =0;
+      switch (num) {
+        case 0:
+          while (playerOne != END_POSITION) {
+            newPosition = playerOne;
+            newPosition = this.Simulation(newPosition);
+            playerOne = newPosition;
+
+            console.log("New Position of player one => " + playerOne);
+          }
           if (playerOne == END_POSITION) {
 
             console.log("Player one win the game as 100th position is reached");
-
           }
-        }
-      }
-      else {
-        while (playerTwo != END_POSITION) {
-          newPosition = playerTwo;
-          newPosition = this.Simulation(newPosition);
-          playerTwo = newPosition;
-          console.log("New Position of player two => " + playerTwo);
+          num=1;
+          break;
+        case 1:
+          while (playerTwo != END_POSITION) {
+            newPosition = playerTwo;
+            newPosition = this.Simulation(newPosition);
+            playerTwo = newPosition;
+        
+            console.log("New Position of player two => " + playerTwo);
+          }
           if (playerTwo == END_POSITION) {
             console.log("Player two win the game as 100th position is reached");
           }
-        }        
+          num=0;
+          break;
       }
     }
   }

@@ -59,25 +59,24 @@ class Model {
   }
 
   WhoWins = () => {
-
     while (newPosition != END_POSITION) {
-      switchplayer =switchplayer+1;
-      var num = switchplayer % 2;
-      switch (num) {
-        case 0:
-          while (playerOne != END_POSITION) {
+      var num = switchplayer % 2;     
+      if(num == 0){
+          if (playerOne != END_POSITION) {
             newPosition = playerOne;
             newPosition = this.Simulation(newPosition);
             playerOne = newPosition;
+
             console.log("New Position of player one => " + playerOne);
           }
           if (playerOne == END_POSITION) {
 
             console.log("Player one win the game as 100th position is reached");
           }
-          break;
-        case 1:
-          while (playerTwo != END_POSITION) {
+          switchplayer++;
+        }
+      else{
+          if (playerTwo != END_POSITION) {
             newPosition = playerTwo;
             newPosition = this.Simulation(newPosition);
             playerTwo = newPosition;
@@ -86,9 +85,10 @@ class Model {
           if (playerTwo == END_POSITION) {
             console.log("Player two win the game as 100th position is reached");
           }
-          break;
+          switchplayer++;
+        }
       }
     }
   }
-}
+
 module.exports = new Model();
